@@ -6,15 +6,15 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
-    // "esModuleInterop": true,
-    // "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
 
     /* Bundler mode */
-    // "moduleResolution": "Node",
-    // "allowImportingTsExtensions": true, //Deixar comentado
+    "moduleResolution": "Node",
+    "allowImportingTsExtensions": true, //Deixar comentado
 
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    // "moduleResolution": "bundler",
+    // "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
