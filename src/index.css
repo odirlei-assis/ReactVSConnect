@@ -16,3 +16,9 @@
     --font1: 'Righteous', cursive;
     --font2: 'Titillium Web', sans-serif;
 }
+
+.container {
+    max-width: 1400px;
+    width: 90%;
+    margin: 0 auto;
+}

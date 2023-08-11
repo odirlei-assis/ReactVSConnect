@@ -4,16 +4,24 @@ import ReactDOM from 'react-dom/client'
 //Componentes
 import Home from "./pages/Home"
 import ListaServicos from "./pages/ListaServicos"
-import Footer from "./components/Footer"
 import Header from "./components/Header"
 
 //CSS
 import "./index.css"
 
+//Biblioteca
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Header/>
-    <ListaServicos />
-    <Footer/>
+    <BrowserRouter>
+      <Header />
+
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/lista/servicos' element={<ListaServicos />} />
+      </Routes>
+      
+    </BrowserRouter>
   </React.StrictMode>,
 )

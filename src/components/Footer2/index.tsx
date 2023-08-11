@@ -1,24 +1,15 @@
 import "./style.css";
 
 import imgLogo from "../../assets/images/logo.svg";
-import imgDev from "../../assets/images/dev.png";
 import imgFace from "../../assets/images/facebook.svg";
 import imgInsta from "../../assets/images/instagram.svg";
 import imgLink from "../../assets/images/linkedin.svg";
 
-function Footer() {
+function Footer2() {
 
     return (
-        <footer id="footer">
+        <footer id="footer2">
             <div className="container rodape">
-                <div className="span_dicas">
-                    <img src={imgDev} alt="" />
-                    <div className="span_dicas_texto">
-                        <p>Temos algumas dicas para o seu serviço ou freela ser um sucesso, acesse nossa página de
-                            recomendações para saber mais.</p>
-                        <a className="botao botao_dicas" href="#">mais dicas</a>
-                    </div>
-                </div>
                 <div className="rodape_conteudo">
                     <div className="rodape_conteudo_paginas">
                         <h2>Páginas</h2>
@@ -46,4 +37,4 @@ function Footer() {
         </footer>
     );
 }
-export default Footer;
+export default Footer2;
