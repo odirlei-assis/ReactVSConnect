@@ -26,7 +26,7 @@ function ListaServicos() {
         if (event.target.value == "") {
             listarDesenvovedores();
         }
-        setListaServicos(event.target.value);
+        setSkillDigitada(event.target.value);
     }
 
     function buscarServicoPorSkill(event: any) {
@@ -54,7 +54,7 @@ function ListaServicos() {
                         <hr />
                         <form method="post" onSubmit={buscarServicoPorSkill}>
                             <div className="wrapper_form">
-                                <label htmlFor="busca">Filtrar serviços por tecnologias</label>
+                                <label htmlFor="busca">Filtrar serviços por tecnologia</label>
                                 <div className="campo-label">
                                     <input
                                         type="search" 

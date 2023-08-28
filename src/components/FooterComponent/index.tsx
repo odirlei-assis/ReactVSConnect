@@ -21,13 +21,13 @@ function FooterComponent() {
                         <Link to={"/"}>Home</Link>
                     </li>
                     <li>
-                        <Link to={"/lista/servicos'"}>Listar Serviços</Link>
+                        <Link to={"/lista/servicos"}>Listar Serviços</Link>
                     </li>
                     <li>
-                        <Link to={"#"}>Cadastrar Cliente</Link>
+                        <Link to={"/cadastrar/servico"}>Cadastrar Serviço</Link>
                     </li>
                     <li>
-                        <Link to={"#"}>Cadastrar Desenvolvedor</Link>
+                        <Link to={"/cadastrar/usuario"}>Cadastrar Desenvolvedor</Link>
                     </li>
                     <li>
                         <Link to={"/lista/devs"}>Listar Desenvolvedores</Link>
