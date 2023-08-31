@@ -10,6 +10,7 @@ import PerfilUsuario from './pages/PerfilUsuario'
 import VisualizarServico from './pages/VisualizarServico'
 import CadastroUsuario from './pages/CadastroUsuario'
 import CadastroServico from './pages/CadastroServico'
+import Login from './pages/Login'
 
 //CSS
 import "./index.css"
@@ -30,6 +31,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path='/servico/:idServico' element={<VisualizarServico />}/>
         <Route path='/cadastrar/usuario' element={<CadastroUsuario />}/>
         <Route path='/cadastrar/servico' element={<CadastroServico />}/>
+        <Route path='/login' element={<Login />}/>
       </Routes>
       
     </BrowserRouter>

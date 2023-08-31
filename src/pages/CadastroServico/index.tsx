@@ -100,6 +100,7 @@ function CadastroServico() {
                                     id="titulo"
                                     placeholder="Ex: E-commerce para pizzaria"
                                     onChange={(e) => setTitulo(e.target.value)}
+                                    maxLength={40}
                                 />
                             </div>
                             <div className="cad_serv_box_input">

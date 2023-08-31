@@ -1,9 +1,11 @@
 import "./style.css";
 
 import Footer2 from "../../components/Footer2";
-import { useEffect, useState } from "react";
-import api from "../../utils/api";
 import CardServico from "../../components/CardServico";
+
+import { useEffect, useState } from "react";
+
+import api from "../../utils/api";
 
 function ListaServicos() {
 
@@ -11,7 +13,7 @@ function ListaServicos() {
 
     const [skillDigitada, setSkillDigitada] = useState<string>("");
 
-    function listarDesenvovedores() {
+    function listarServicos() {
         api.get("servicos")
             .then((response: any) => {
                 setListaServicos(response.data);
@@ -24,7 +26,7 @@ function ListaServicos() {
 
     function verificarCampoFiltro(event: any) {
         if (event.target.value == "") {
-            listarDesenvovedores();
+            listarServicos();
         }
         setSkillDigitada(event.target.value);
     }
@@ -42,7 +44,7 @@ function ListaServicos() {
     }
 
     useEffect(() => {
-        listarDesenvovedores();
+        listarServicos();
     }, [])
 
     return (

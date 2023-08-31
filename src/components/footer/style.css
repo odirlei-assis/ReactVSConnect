@@ -74,8 +74,20 @@
 /* MEDIAS */
 @media screen and (max-width: 768px) {
     /* FOOTER */
-    .span_dicas_texto{
+    #footer .span_dicas_texto{
         width: 90%;
         text-align: center;
     }
+
+    #footer .span_dicas img{
+        display: none;
+    }
+
+    #footer .rodape_conteudo{
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+
 }

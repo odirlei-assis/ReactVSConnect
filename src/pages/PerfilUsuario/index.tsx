@@ -1,5 +1,5 @@
 //rotas
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 //hooks
 import { useEffect, useState } from "react";
@@ -10,12 +10,15 @@ import "./style.css";
 //axios
 import api from "../../utils/api";
 import Footer2 from "../../components/Footer2";
+import secureLocalStorage from "react-secure-storage";
 
 
 
 function PerfilUsuario() {
 
     const { idUsuario } = useParams();
+
+    const navigate = useNavigate();
 
     const [nome, setNome] = useState<string>("");
     const [foto, setFoto] = useState<string>("");
@@ -47,6 +50,20 @@ function PerfilUsuario() {
     useEffect(() => {
         buscarUsuarioPorID();
     }, []);
+
+    function verificarListaTechs() {
+        if (typeof listaSkills === "string") {
+            return JSON.parse(listaSkills);
+        } else {
+            return listaSkills;
+        }
+    }
+
+    function deslogar(){
+        secureLocalStorage.removeItem("user");
+        navigate("/login");
+        navigate(0);
+    }
 
     return (
         <>
@@ -85,14 +102,14 @@ function PerfilUsuario() {
                             <p>Tecnologias principais: </p>
                             <div className="lista_skills">
                                 {
-                                    listaSkills.map((tech: string, index: number) => {
+                                    verificarListaTechs().map((tech: string, index: number) => {
                                         return <span key={index}>{tech}</span>
                                     })
                                 }
                             </div>
                         </div>
                         <footer>
-                            <Link to={"#"}>
+                            <Link to={"#"} onClick={deslogar}>
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 512 512">{/*  Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. */}
                                     <path

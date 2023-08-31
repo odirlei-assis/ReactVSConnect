@@ -1,11 +1,40 @@
 import "./style.css";
+
 import imgClientes from "../../assets/images/clientes.png";
 import imgMaosDev from "../../assets/images/maos_dev.png";
-import imgAlfinete from "../../assets/images/alfinete.png";
 
 import Footer from "../../components/Footer"
+import CardServHome from "../../components/CardServHome";
+
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+import api from "../../utils/api";
 
 function Home() {
+
+    const [listaServicos, setListaServicos] = useState<any[]>([]);
+
+    function listarServicos() {
+        let doisServicos: any[] = [];
+
+        api.get("servicos")
+            .then((response: any) => {
+
+                for (let i = 0; i < 2; i++) {
+                    doisServicos.push(response.data[i]);
+                }
+
+                setListaServicos(doisServicos);
+            })
+            .catch((error: any) => {
+                console.log("Error", error)
+            })
+    }
+
+    useEffect(() => {
+        listarServicos();
+    }, [])
 
     return (
         <div>
@@ -18,8 +47,8 @@ function Home() {
                             oportunidades.</p>
                         <p className="banner_slogan_l3">Conecte-se e comece a desvendar esse mundo!</p>
                         <div className="banner_botoes">
-                            <a className="botao banner_botao_dev" href="#">desenvolvedor</a>
-                            <a className="botao banner_botao_cli" href="#">cliente</a>
+                            <Link className="botao banner_botao_dev" to="/cadastrar/usuario">desenvolvedor</Link>
+                            <Link className="botao banner_botao_cli" to="/cadastrar/usuario">cliente</Link>
                         </div>
                     </div>
                 </section>
@@ -36,7 +65,7 @@ function Home() {
                                 <li>procurar por desenvolvedores</li>
                             </ul>
                             <div>
-                                <a className="botao clientes_botao_cli" href="#">criar conta</a>
+                                <Link className="botao clientes_botao_cli" to="/cadastrar/usuario">criar conta</Link>
                             </div>
                         </div>
                     </div>
@@ -50,7 +79,7 @@ function Home() {
                             <li>divulgar suas hardskills</li>
                         </ul>
                         <div>
-                            <a className="botao clientes_botao_devs" href="#">criar conta</a>
+                            <Link className="botao clientes_botao_devs" to="/cadastrar/usuario">criar conta</Link>
                         </div>
                     </div>
                     <img src={imgMaosDev} alt="" />
@@ -58,7 +87,22 @@ function Home() {
                 <section className="container servicos">
                     <h2>serviços</h2>
                     <div className="servicos_cards">
-                        <div className="card card1">
+
+                        {
+                            listaServicos.map((servico: any, indice: number) => {
+                                return (
+                                    <div className="card card2" key={indice}>
+                                        <CardServHome
+                                            titulo={servico.nome}
+                                            descricao={servico.descricao}
+                                            proposta={servico.valor}
+                                        />
+                                    </div>
+                                )
+                            })
+                        }
+
+                        {/* <div className="card card1">
                             <img src={imgAlfinete} alt="" />
                             <h3>Aplicativo para PetShop</h3>
                             <p>Possuo um Petshop e gostaria de um aplicativo para que meus clientes pudessem agendar serviços
@@ -71,9 +115,10 @@ function Home() {
                             <p>Preciso de um site para divulgar o sabores das pizzas, o endereço, os telefones de contato,
                                 nossas redes sociais.</p>
                             <p>Proposta: R$750,00</p>
-                        </div>
+                        </div> */}
+
                     </div>
-                    <a href="#">Ver mais serviços</a>
+                    <Link to={"/lista/servicos"}>Ver mais serviços</Link>
                 </section>
             </main>
             <Footer />
